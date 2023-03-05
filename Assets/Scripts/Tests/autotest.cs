@@ -64,7 +64,6 @@ public class script : MonoBehaviour
             yield return null;
         }
 
-
         result = GameManager.IsRunning;
         LogResult(result, "Loading test");
     }
@@ -111,12 +110,7 @@ public class script : MonoBehaviour
         positionAfter = m_rbody.position;
         result &= (position.x > positionAfter.x);
 
-        
-
-
         LogResult(result, "Movement test");
-
-
     }
     [UnityTest]
     public IEnumerator DummyTest_Portal_Trigger()
@@ -129,13 +123,10 @@ public class script : MonoBehaviour
         //Possible Improvements: I believe some further tests could try to reach portal when object is really fast and tests like that
         bool result = false;
         var port = GameObject.Find("PortalSprite").transform.position + new Vector3(0, 0);
-
         m_rbody = getCurrentRigidBody();
 
-        
         m_rbody.position = port;
         yield return new WaitForSeconds(0.2f);
-
         result = (!GameManager.IsRunning);
         result &= (!GameManager.IsTimerRunning);
 
@@ -233,16 +224,14 @@ public class script : MonoBehaviour
     public Rigidbody2D getCurrentRigidBody()
     {
         m_obj = GameObject.Find("Player");
-       
-        return m_obj.GetComponent<Rigidbody2D>();
+               return m_obj.GetComponent<Rigidbody2D>();
     }
 
     //Get player damage manager
     public CharacterDamageManager getCurrentDamageManager()
     {
         m_obj = GameObject.Find("Player");
-        
-        return m_obj.GetComponent<CharacterDamageManager>();
+                return m_obj.GetComponent<CharacterDamageManager>();
     }
 
 }
