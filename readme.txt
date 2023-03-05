@@ -1,0 +1,1 @@
+To run the tests open project in unity go to Window -> General -> Test runner, there choose playmode and Run all Tests :)
